@@ -71,7 +71,7 @@ impl NimGame {
         let mut beta = beta;
 
         if is_maximizing {
-            let mut max_eval = std::i32::MIN;
+            let mut max_eval = i32::MIN;
             let successors = self.get_successors();
 
             for successor in successors {
@@ -85,7 +85,7 @@ impl NimGame {
 
             max_eval
         } else {
-            let mut min_eval = std::i32::MAX;
+            let mut min_eval = i32::MAX;
             let successors = self.get_successors();
 
             for successor in successors {
@@ -104,10 +104,10 @@ impl NimGame {
     fn get_best_move(&self) -> u32 {
         let max_sticks = std::cmp::min(3, self.total_sticks);
 
-        let mut best_value = std::i32::MIN;
+        let mut best_value = i32::MIN;
         let mut best_move = 0;
-        let mut alpha = std::i32::MIN;
-        let beta = std::i32::MAX;
+        let mut alpha = i32::MIN;
+        let beta = i32::MAX;
 
         for num_sticks in 1..=max_sticks {
             let mut new_game = self.clone();
